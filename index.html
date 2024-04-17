@@ -66,10 +66,10 @@
                     <li class="country-item" data-value="us">
                         <div class="country-dropdown-select">
                             <div>
-                                <span>United States</span>
+                                <span>Germany</span>
                             </div>
                             <div class="country-flag">
-                                <img src="images/at.08287c75.png" alt="United States flag">
+                                <img src="images/de.8a11a358.png" alt="Germany flag">
                             </div>
                         </div>
                     </li>
@@ -77,10 +77,10 @@
                     <li class="country-item" data-value="us">
                         <div class="country-dropdown-select">
                             <div>
-                                <span>United States</span>
+                                <span>Australia</span>
                             </div>
                             <div class="country-flag">
-                                <img src="images/at.08287c75.png" alt="United States flag">
+                                <img src="images/au.9917e5a8.png" alt="Australia flag">
                             </div>
                         </div>
                     </li>
@@ -238,7 +238,7 @@
 
         .country-flag > img {
             width: 24px;
-            transform: translateX(-18px);
+            transform: translateX(-22px);
         }
 
         #country-button i {
@@ -282,12 +282,11 @@
         }
 
         ::-webkit-scrollbar-track {
-        box-shadow: inset 0 0 5px grey; 
+            box-shadow: inset 0 0 5px grey; 
         }
         
         ::-webkit-scrollbar-thumb {
-        background: rgb(124, 9, 66); 
-        border-radius: 10px;
+            background: rgb(124, 9, 66); 
         }
 
         ::-webkit-scrollbar-thumb:hover {
@@ -402,34 +401,37 @@
 
     
       <script>
-        // Add event listener to the button
-document.getElementById("country-button").addEventListener("click", function() {
-  // Toggle the country list visibility
-  var countryList = document.getElementById("country-list");
-  if (countryList.style.display === "block") {
-    countryList.style.display = "none";
-  } else {
-    countryList.style.display = "block";
-  }
-});
+            // Add event listener to the button
+            document.getElementById("country-button").addEventListener("click", function() {
+                // Toggle the country list visibility
+                var countryList = document.getElementById("country-list");
+                if (countryList.style.display === "block") {
+                    countryList.style.display = "none";
+                } else {
+                    countryList.style.display = "block";
+                }
+            });
 
-// Add event listener to the country items
-var countryItems = document.getElementsByClassName("country-item");
-for (var i = 0; i < countryItems.length; i++) {
-  countryItems[i].addEventListener("click", function() {
-    // Set the button text and value
-    var countryName = this.getElementsByTagName("span")[0].innerText;
-    var countryValue = this.getAttribute("data-value");
-    document.getElementById("country-name").innerText = countryName;
-    document.getElementById("country-button").value = countryValue;
+            // Add event listener to the country items
+            var countryItems = document.getElementsByClassName("country-item");
+            for (var i = 0; i < countryItems.length; i++) {
+                countryItems[i].addEventListener("click", function() {
+                    // Set the button text and value
+                    var countryName = this.getElementsByTagName("span")[0].innerText;
+                    var countryValue = this.getAttribute("data-value");
+                    document.getElementById("country-name").innerText = countryName;
 
-    // Hide the country list
-    var countryList = document.getElementById("country-list");
-    countryList.style.display = "none";
-  });
-}
+                    // Get the flag image source
+                    var flagSrc = this.querySelector(".country-flag img").getAttribute("src");
+                    // Set the flag image source
+                    document.querySelector("#country-button img").setAttribute("src", flagSrc);
 
-      </script>
+                    // Hide the country list
+                    var countryList = document.getElementById("country-list");
+                    countryList.style.display = "none";
+                });
+            }
+        </script>
       <!-- ==================== Cookie PopUp End ============================== -->
     </head> 
 
